@@ -1,23 +1,46 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab One
+      Usuários
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  
     <ion-card class="welcome-card">
-      <img src="/assets/shapes.svg" alt="" />
-      <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
+      <img src="/assets/E-commerce.jpg" alt="" />
     </ion-card>
-    <ion-list lines="none">
+    <h1><b> Lista de usuários</b></h1>
+    <ion-input [(ngModel)]="username" placeholder="Digite login"></ion-input>
+    <ion-input [(ngModel)]="password" placeholder="Digite senha"></ion-input>
+    
+    <ion-button [disabled]="!verificarDados()" (click)="incluirUser()" >Incluir</ion-button>
+    <ion-button (click)="pesquisaUsers()" >Pesquisar</ion-button>
+
+    <div *ngFor="let pessoa of pessoasPesquisadas">
+      <p>
+        <b>ID: </b>{{ pessoa.id}}
+        <br>
+        <b>Nome: </b>{{ pessoa.username}}
+        <!-- <b>Ativo: </b>{{ pessoa.isActive }} -->
+      </p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <ion-list lines="none">
       <ion-list-header>
         <ion-label>Resources</ion-label>
       </ion-list-header>
@@ -37,5 +60,5 @@
         <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
         <ion-label>Theme Your App</ion-label>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
 </ion-content>

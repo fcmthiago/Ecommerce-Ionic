@@ -1,9 +1,42 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Produtos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+    <ion-card class="welcome-card">
+        <img src="/assets/E-commerce.jpg" alt="" />
+      </ion-card>
+      <h1><b> Lista de produtos</b></h1>
+      <ion-input [(ngModel)]="productName" placeholder="Digite nome do produto"></ion-input>
+      <ion-input [(ngModel)]="englishName" placeholder="Digite nome em ingres do produto"></ion-input>
+      <ion-input [(ngModel)]="description" placeholder="Digite descrição do produto"></ion-input>
+      <ion-input [(ngModel)]="price" placeholder="Digite o preço do produto"></ion-input>
+      <ion-input [(ngModel)]="quantity" placeholder="Digite quantidade do produto"></ion-input>
+      <ion-input [(ngModel)]="unity" placeholder="Digite unidade do produto"></ion-input>
+      
+      <ion-button [disabled]="!verificarDados()" (click)="incluirProduct()" >Incluir</ion-button>
+      <ion-button (click)="pesquisaProducts()" >Pesquisar</ion-button>
+  
+      <div *ngFor="let produto of produtosPesquisados">
+        <p>
+          <b>ID: </b>{{ produto.id}}
+          <br>
+          <b>Nome do produto: </b>{{ produto.productName }}
+          <br>
+          <b>Nome em ingres do produto: </b>{{ produto.englishName }}
+          <br>
+          <b>Descrição do produto: </b>{{ produto.description}}
+          <br>
+          <b>Preço do produto: </b>{{ produto.price }}
+          <br>
+          <b>Quantidade do produto: </b>{{ produto.quantity}}
+          <br>
+          <b>Unidade do produto: </b>{{ produto.unity }}
+        </p>
+      </div>
+    
+</ion-content>
